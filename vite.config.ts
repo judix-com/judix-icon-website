@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+const repoBase = process.env.GITHUB_PAGES === 'true' ? '/icon-pack-site/' : '/'
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: repoBase,
 })
