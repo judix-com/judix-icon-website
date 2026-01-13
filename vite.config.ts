@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const repoBase = process.env.GITHUB_PAGES === 'true' ? '/judix-icon-website/' : '/'
+const repoBase = '/judix-icon-website/'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: repoBase,
-})
+  base: command === 'serve' ? '/' : repoBase,
+}))
